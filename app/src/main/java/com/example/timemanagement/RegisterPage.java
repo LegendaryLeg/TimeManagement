@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Register extends AppCompatActivity {
+public class RegisterPage extends AppCompatActivity {
 
     EditText registerUsername, registerPassword, registerEmail;
     TextView redirectMessage;
@@ -45,8 +45,8 @@ public class Register extends AppCompatActivity {
                 HelperClass helperClass = new HelperClass(name, email, password);
                 reference.child(name).setValue(helperClass);
 
-                Toast.makeText(Register.this, "Signed up successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Register.this, Log.class);
+                Toast.makeText(RegisterPage.this, "Signed up successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterPage.this, Log.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class Register extends AppCompatActivity {
         redirectMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Register.this, Log.class);
+                Intent intent = new Intent(RegisterPage.this, Log.class);
                 startActivity(intent);
             }
         });
