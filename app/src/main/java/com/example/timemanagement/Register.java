@@ -2,9 +2,14 @@ package com.example.timemanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -12,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Register extends AppCompatActivity {
 
     EditText registerUsername, registerPassword, registerEmail;
+    TextView redirectMessage;
     Button signupButton;
     FirebaseDatabase dataBase;
     DatabaseReference reference;
@@ -24,5 +30,33 @@ public class Register extends AppCompatActivity {
         registerUsername = findViewById(R.id.editTextText_username);
         registerPassword = findViewById(R.id.editTextTextPassword_password);
         registerEmail = findViewById(R.id.editTextTextEmailAddress_email);
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dataBase = FirebaseDatabase.getInstance();
+                reference = dataBase.getReference("users");
+
+                String name = registerUsername.getText().toString();
+                String email = registerEmail.getText().toString();
+                String password = registerPassword.getText().toString();
+
+                HelperClass helperClass = new HelperClass(name, email, password);
+                reference.child(name).setValue(helperClass);
+
+                Toast.makeText(Register.this, "Signed up successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Register.this, Log.class);
+                startActivity(intent);
+            }
+        });
+
+        redirectMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Register.this, Log.class);
+                startActivity(intent);
+            }
+        });
     }
 }
