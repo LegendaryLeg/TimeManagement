@@ -22,8 +22,6 @@ public class RegisterPage extends AppCompatActivity {
     FirebaseDatabase dataBase;
     DatabaseReference reference;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,15 +47,6 @@ public class RegisterPage extends AppCompatActivity {
 
                 Toast.makeText(RegisterPage.this, "Signed up successfully", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegisterPage.this, Log.class);
-                startActivity(intent);
-            }
-        });
-
-        signupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Start the SignUpActivity when the signup button is clicked
-                Intent intent = new Intent(RegisterPage.this, Register2.class);
                 startActivity(intent);
             }
         });

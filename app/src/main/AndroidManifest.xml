@@ -13,7 +13,7 @@
         android:theme="@style/Theme.TimeManagement"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterPage"
+            android:name=".Register"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
