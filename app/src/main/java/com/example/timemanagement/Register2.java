@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//ya eto delal Rakhat
 public class Register2 extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Hobby> hobbies;
